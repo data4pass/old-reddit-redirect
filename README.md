@@ -6,6 +6,9 @@ Tribun News terkenal karena secara tidak perlu membagi artikel online mereka men
 ## English
 Tribun News is notorious for unnecessarily splitting their online articles into pages. However it has provided a (hidden) functionality to show its articles in their entirety. This WebExtension takes advantage of the hidden functionality by forcing all `*.tribunnews.com/*` usage to redirect to `*.tribunnews.com/*?page=all`, ensuring the functionality is always used.
 
+## Installation
+This extension is currently available for [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/tribun-page-extension/).
+
 ## License
 
 Code released under [the MIT license](LICENSE.txt).
