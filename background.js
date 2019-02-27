@@ -1,33 +1,21 @@
-const oldReddit = "https://old.reddit.com";
+const pageAll = "?page=all";
 
 chrome.webRequest.onBeforeRequest.addListener(
   function(details) {
-    // Exclude poll pages
-    if (details.url.match(/^https?:\/\/(www\.)*reddit.com\/poll/)) {
-      return;
+    if (details.url.match(/^http.?:\/\/(.*\.)*tribunnews.com\/.*/)[0] && !details.url.includes(pageAll)) {
+      return{
+        redirectUrl:
+          details.url.match(/^http.?:\/\/(.*\.)*tribunnews.com\/.*/)[0] + pageAll
+      }
     }
-
-    return {
-      redirectUrl:
-        oldReddit + details.url.match(/^https?:\/\/[^\/]+([\S\s]*)/)[1]
-    };
   },
   {
     urls: [
-      "*://reddit.com/*",
-      "*://www.reddit.com/*",
-      "*://np.reddit.com/*",
-      "*://new.reddit.com/*",
+      "*://tribunnews.com/*",
+      "*://*.tribunnews.com/*",
     ],
     types: [
-      "main_frame",
-      "sub_frame",
-      "stylesheet",
-      "script",
-      "image",
-      "object",
-      "xmlhttprequest",
-      "other"
+      "main_frame"
     ]
   },
   ["blocking"]
