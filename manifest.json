@@ -1,6 +1,6 @@
 {
   "name": "Tribun Automatic Page Extension",
-  "description": "Ensure Tribun always loads its articles in their full form",
+  "description": "Ensure Tribun News to always load its articles in their full form",
   "version": "1",
   "manifest_version": 2,
   "background": {"scripts":["background.js"]},
